@@ -12,3 +12,4 @@ if ("serviceWorker" in navigator) {
 } else {
   console.log("CLIENT: service worker is not supported.");
 }
+debugger;
