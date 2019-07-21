@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>Hello World</title>
-   
+
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
     <div class="continer">
-    <h1>Hello<h1>
-    <h2>Close your network setting then refresh this page, This page would be still open</h2>  
-    <div id="root"></div>
+      <h2>Close your network setting then refresh this page, This page would be still open</h2>
+      <div id="root"></div>
     </div>
 
     <!--
@@ -39,10 +38,10 @@
     <script>
       // register ServiceWorker, remember to use absolute path!
       if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('./service-worker.js')
+        navigator.serviceWorker.register("./service-worker.js");
       }
-      
+
       // --- Application code here ---
-      </script>
+    </script>
   </body>
 </html>

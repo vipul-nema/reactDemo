@@ -1,6 +1,6 @@
 var currentCacheName = "sw-demo_v2";
 
-var urlsToCache = ["reactDemo/", "reactDemo/main.css", "reactDemo/like_button.js"];
+var urlsToCache = ["./reactDemo/", "./reactDemo/main.css", "./reactDemo/like_button.js"];
 self.addEventListener("install", function(event) {
   console.log("WORKER: install event in progress.");
   //self.skipWaiting() prevents the waiting, meaning the service worker activates as soon as it's finished installing.
