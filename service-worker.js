@@ -1,11 +1,18 @@
-var currentCacheName = "sw-demo_v4";
+var currentCacheName = "sw-demo_v2";
+
+var urlsToCache = ["reactDemo/", "reactDemo/main.css", "reactDemo/like_button.js"];
 self.addEventListener("install", function(event) {
+  console.log("WORKER: install event in progress.");
   //self.skipWaiting() prevents the waiting, meaning the service worker activates as soon as it's finished installing.
   //This means some of your page's fetches will have been handled by your old service worker,
   // but your new service worker will be handling subsequent fetches.
   //If this might break things, don't use skipWaiting().
+  event.waitUntil(
+    caches.open(currentCacheName).then(cache => {
+      return cache.addAll(urlsToCache);
+    })
+  );
   self.skipWaiting();
-  console.log("WORKER: install event in progress.");
 });
 
 self.addEventListener("activate", function(event) {
