@@ -1,6 +1,13 @@
 body {
-    background-color: grey;
-    width: 400px;
-    margin: 50px;
-    padding: 20px;
+  background-color: grey;
+  height: 100%;
+  width: 100%;
+}
+
+.continer {
+  background-color: goldenrod;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  padding: 10px;
 }
