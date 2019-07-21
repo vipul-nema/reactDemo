@@ -1,4 +1,4 @@
-var currentCacheName = "sw-demo_v2";
+var currentCacheName = "sw-demo_v3";
 
 var urlsToCache = ["./", "./main.css", "./like_button.js"];
 self.addEventListener("install", function(event) {
