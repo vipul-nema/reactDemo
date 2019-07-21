@@ -1,6 +1,6 @@
-var currentCacheName = "sw-demo_v3";
+var currentCacheName = "sw-demo_v6";
 
-var urlsToCache = ["./", "./main.css", "./like_button.js"];
+var urlsToCache = ["./", "./index.html", "./main.css", "./like_button.js"];
 self.addEventListener("install", function(event) {
   console.log("WORKER: install event in progress.");
   //self.skipWaiting() prevents the waiting, meaning the service worker activates as soon as it's finished installing.
@@ -40,11 +40,19 @@ self.addEventListener("activate", function(event) {
 self.addEventListener("fetch", function(event) {
   console.log("WORKER: fetch event in progress.", event.request.url);
   var request = event.request;
+  if (event.request.cache === "only-if-cached" && event.request.mode !== "same-origin") {
+    return;
+  }
+
   event.respondWith(
     caches.open(currentCacheName).then(function(cache) {
       return cache.match(event.request).then(function(response) {
+        if (response) {
+          return response;
+        }
+
         var corsRequest;
-        if (request.mode !== "cors") {
+        if (request.mode === "no-cors") {
           corsRequest = new Request(request, {
             mode: "cors",
             credentials: "omit" // include, *same-origin, omit
@@ -57,13 +65,10 @@ self.addEventListener("fetch", function(event) {
           corsRequest = request.clone();
         }
 
-        return (
-          response ||
-          fetch(corsRequest).then(function(response) {
-            cache.put(event.request, response.clone());
-            return response;
-          })
-        );
+        return fetch(corsRequest).then(function(response) {
+          cache.put(event.request, response.clone());
+          return response;
+        });
       });
     })
   );
