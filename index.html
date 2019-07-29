@@ -9,17 +9,14 @@
   </head>
   <body>
     <div class="continer">
-      <h2>Close your network setting then refresh this page, This page would be still open</h2>
+      <h2>Go to offline network mode, then refresh this page. This page would would work in offline</h2>
       <div id="root"></div>
       <button id="like-btn">Like</button>
     </div>
 
     <script src="./like_button.js"></script>
-    <script>
-      // register ServiceWorker, remember to use absolute path!
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("./service-worker.js");
-      }
+    <script src="./register-service-worker.js">
+
 
       // --- Application code here ---
     </script>

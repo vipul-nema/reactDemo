@@ -1,7 +1,7 @@
 // ServiceWorker is a progressive technology. Ignore unsupported browsers
 if ("serviceWorker" in navigator) {
   console.log("CLIENT: service worker registration in progress.");
-  navigator.serviceWorker.register("https://vipul-nema.github.io/reactDemo/service-worker.js").then(
+  navigator.serviceWorker.register("./service-worker.js").then(
     function() {
       console.log("CLIENT: service worker registration complete.");
     },
